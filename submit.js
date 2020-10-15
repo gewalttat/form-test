@@ -8,7 +8,6 @@ let name = document.getElementById('name');
 let telNumber = document.getElementById('tel');
 var backtimeEl = document.getElementById('backtime');
 
-
 submitBtn.onclick = function () {
 function check() {
     if (document.querySelectorAll('input').value != '')
