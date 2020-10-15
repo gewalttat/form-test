@@ -1,0 +1,107 @@
+.backtimeclass {
+    display: none;
+}
+
+.mainForm {
+    margin-bottom: 30%;
+    margin-top: 30%;
+    margin-left: 30%;
+    position: relative;
+    width: 500px;
+    background-color:rgba(255, 255, 255, 0.8);
+    box-shadow: black;
+    border-radius: 5%;
+    box-shadow: 0 0 30px black;
+}
+
+body {
+    background: rgb(117, 174, 221);
+    font-family: 'Old Standard TT', serif;
+    position: relative;
+    width: 50%;
+    margin: auto;
+}
+
+.date {
+    padding: 10px;
+    padding-left: 28%;
+}
+
+.time {
+    padding-left: 41%;
+}
+
+#time {
+    padding-left: 5%;
+}
+
+.travelTime {
+    padding-left: 30%;
+    padding-bottom: 10px;
+}
+
+
+.backtimeclass {
+    padding: 10px;
+    padding-left: 14.5%;
+}
+
+#backtime {
+    padding-left: 5%;
+    text-align: left;
+}
+
+.route {
+    padding: 10px;
+    padding-left: 13.5%;
+}
+
+.sendData {
+    padding: 10px;
+    padding-left: 40%;
+}
+
+.fullName {
+    padding: 5px;
+    padding-left: 23%;
+}
+
+.ticketsCost {
+    padding-left: 14.5%;
+}
+
+.waysCost {
+    padding-left: 10%;
+}
+
+.telNumber {
+    padding-left: 3%;
+}
+
+.checkbox {
+    padding-left: 30%;
+    margin-top: 10px;
+    font-size: 12px;
+    display: inline-flex;
+}
+
+.agree {
+    margin-top: 5px;
+}
+
+#submit {
+    width: 100px;
+    height: 30px;
+    background-color: rgb(36, 155, 253);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+}
+
+
+#ticketsNum {
+    padding-left: 15px;
+}
+
+#summCost {
+    padding: 15px; 
+}

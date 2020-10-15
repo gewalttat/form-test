@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class='mainForm'>
+        <div class='leftSide'>
+            <div class='date'>
+                <label for="date">Выберите дату</label>
+                <input required type="date" id='date' onkeyup="this.value = this.value.replace(/[^\d]/g,'');">
+            </div>
+
+            <div class='route'>
+                <label for="route">Выберите направление</label>
+                <select name="route" id="route">
+                    <option value="из A в B">из A в B</option>
+                    <option value="из B в A">из B в A</option>
+                    <option value="из A в B и обратно в А">из A в B и обратно в А</option>
+                </select>
+            </div>
+
+            <div class='time'>
+                <label for="time">Выберите время</label>
+                <select name="time" id="time">
+                    <option class='wayA' value="10:00(из A в B)">10:00(из A в B)</option>
+                    <option class='wayA' value="12:00(из A в B)">12:00(из A в B)</option>
+                    <option class='wayA' value="14:00(из A в B)">14:00(из A в B)</option>
+                    <option class='wayA' value="16:00(из A в B)">16:00(из A в B)</option>
+                    <option class='wayA' value="18:00(из A в B)">18:00(из A в B)</option>
+                    <option class='wayA' value="20:00(из A в B)">20:00(из A в B)</option>
+                    <option class='wayB' value="10:30(из B в A)">10:30(из В в А)</option>
+                    <option class='wayB' value="12:30(из B в A)">12:30(из В в А)</option>
+                    <option class='wayB' value="14:30(из B в A)">14:30(из В в А)</option>
+                    <option class='wayB' value="16:30(из B в A)">16:30(из В в А)</option>
+                    <option class='wayB' value="18:30(из B в A)">18:30(из В в А)</option>
+                    <option class='wayB' value="20:30(из B в A)">20:30(из В в А)</option>
+                </select>
+                <script src='./hideWaySelector.js'>
+                </script>
+                <script src='./routeSelector.js'>
+                </script>
+            </div>
+
+            <div class='backtimeclass'>
+                <label for="backtime">Выберите время обратного билета</label>
+                <select name="backtime" id="backtime">
+                    <option class='backway' value="10:30(из B в A)">10:30(из В в А)</option>
+                    <option class='backway' value="12:30(из B в A)">12:30(из В в А)</option>
+                    <option class='backway' value="14:30(из B в A)">14:30(из В в А)</option>
+                    <option class='backway' value="16:30(из B в A)">16:30(из В в А)</option>
+                    <option class='backway' value="18:30(из B в A)">18:30(из В в А)</option>
+                    <option class='backway' value="20:30(из B в A)">20:30(из В в А)</option>
+                </select>
+                <script src='./routeSelector.js'>
+                </script>
+                <script src='./hideWaySelector.js'>
+                </script>
+            </div>
+
+            <div class='travelTime'>
+                <!-- с этим надо что-то делать или..? -->
+                <p>Время в пути 2 часа 5 минут</p>
+            </div>
+        </div>
+
+        <div class='rightSide'>
+            <div class='waysCost'>
+                <p>"из A в B" и "из B в A" стоимость одного билета 700р</p>
+                <p>"из A в B и обратно в А" стоимость составного билета 1200р</p>
+            </div>
+            <form>
+                <div class='ticketsCost'>
+                    <label for="num">Количество билетов</label>
+                    <input type="text" id='abc' required>
+                    <script>
+                        var input = document.getElementById('abc');
+                        var route = document.getElementById('route');
+                        input.oninput = function () {
+                            if (route.value === "из A в B" || route.value === "из B в A") {
+                                document.getElementById('ticketsNum').innerHTML = input.value;
+                                document.getElementById('summCost').innerHTML = (input.value * 700) + ' руб.';
+                            } else if (route.value === "из A в B и обратно в А") {
+                                document.getElementById('ticketsNum').innerHTML = input.value;
+                                document.getElementById('summCost').innerHTML = (input.value * 1200) + ' руб.';
+                            };
+                        };
+                    </script>
+                    <!-- обязательное поле с валидацией -->
+                </div>
+
+                <div class='fullName'>
+                    <label for="name">Фамилия Имя</label>
+                    <input id='name' placeholder="Иванов Иван Иванович" required>
+                    <!-- обязательное поле с валидацией -->
+                </div>
+
+                <div class='telNumber'>
+                    <label for="tel">Номер мобильного телефона</label>
+                    <input id='tel' placeholder="+7(___)__-__-___" required>
+                    <!-- обязательное поле с валидацией -->
+                </div>
+
+                <div class='checkbox'>
+                    <input type="checkbox" onchange="document.getElementById('submit').disabled = !this.checked;">
+                    <!-- Невозможно кликнуть на кнопку без согласия -->
+                    <p class='agree'>Я согласен с пользовательским соглашением </p>
+                </div>
+        </div>
+
+        <div class='final'>
+            <!-- Показать актуальное итоговое количество билетов -->
+            <p>Итоговое количество билетов: <span id='ticketsNum'></span> </p>
+            <!-- Показать актуальную итоговую сумму билетов -->
+            <p>Итоговая сумма билетов: <span id='summCost'> </span> </p>
+        </div>
+
+        <div class='sendData'>
+            <!-- По нажатию на кнопку результат формы вывести на экран -->
+            <input disabled a href='' id='submit' type='submit'>
+            <script src='./submit.js'></script>
+        </div>
+        </form>
+    </div>
+</body>
+
+</html>
