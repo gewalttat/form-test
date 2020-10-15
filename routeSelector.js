@@ -29,6 +29,7 @@ route.addEventListener('change', function () {
     for (var i = 0; i < backtime.length; i++) backtime[i].style.display = 'none';
   }
 });
+
 //появление дополнительного селекта
 route.addEventListener('change', function () {
   if (this.value === 'из A в B и обратно в А') {
@@ -58,7 +59,6 @@ var changeBacktimeDivOptionsVisibility = function (startTime) {
       // not used, delete document.body.append(backtimeEl.options.length);
       backtimeOptions[i].style.display = 'block';
       // backtimeEl.options[i].style.display = 'block';
-
       // not used, delete console.log(backtimeOptions[i].style.display);
     } else if (startTime.substr(0, 2) > backtimeEl.options[i].value.substr(0, 2)) {
       backtimeOptions[i].style.display = 'none';

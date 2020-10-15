@@ -15,7 +15,6 @@ function check() {
     else
     document.getElementById('submit').disabled = true;
 }
-
     if (route.value === 'из A в B' || route.value === 'из B в A') {
     alert(name.value + ', Вы успешно оформили покупку ' +
         finalNum.innerText + ' билетов в направлении ' + route.value +
